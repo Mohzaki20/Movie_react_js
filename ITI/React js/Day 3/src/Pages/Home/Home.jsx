@@ -14,9 +14,6 @@ export default function Home() {
   const [info, setInfo] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  // const info = useSelector((state) => state.movies);
-  // const dispatch = useDispatch();
-
   useEffect(() => {
     axios
       .get(
@@ -24,7 +21,6 @@ export default function Home() {
       )
       .then((res) => setInfo(res.data.results))
       .catch((err) => console.error(err));
-    //dispatch(changeMovies());
   }, [currentPage]);
   const { lang } = useContext(langContext);
   return (
